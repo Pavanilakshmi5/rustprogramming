@@ -42,7 +42,7 @@ fn main() {
         phno: String::from("5678901234"),
         id: 5,
     });
-for i in 1..=2{
+for i in 1..=4{
     println!("Enter an index to view student details:");
     let mut user_input = String::new();
     io::stdin().read_line(&mut user_input).expect("Failed to read line");
