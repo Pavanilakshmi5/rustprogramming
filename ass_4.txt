@@ -1,0 +1,64 @@
+use std::io;
+
+struct Student {
+    name: String,
+    email: String,
+    phno: String,
+    id: u32,
+}
+
+fn main() {
+    let mut students_info: Vec<Student> = Vec::new();
+
+    students_info.push(Student {
+        name: String::from("student1"),
+        email: String::from("gmail1@gamil.com"),
+        phno: String::from("1234567890"),
+        id: 1,
+    });
+
+    students_info.push(Student {
+        name: String::from("student2"),
+        email: String::from("gmail2@gamil.com"),
+        phno: String::from("2345678901"),
+        id: 2,
+    });
+
+    students_info.push(Student {
+        name: String::from("student3"),
+        email: String::from("gmail3@gamil.com"),
+        phno: String::from("3456789012"),
+        id: 3,
+    });
+    students_info.push(Student {
+        name: String::from("student4"),
+        email: String::from("gmail4@gamil.com"),
+        phno: String::from("4567890123"),
+        id: 4,
+    });
+    students_info.push(Student {
+        name: String::from("student5"),
+        email: String::from("gmail5@gamil.com"),
+        phno: String::from("5678901234"),
+        id: 5,
+    });
+for i in 1..=2{
+    println!("Enter an index to view student details:");
+    let mut user_input = String::new();
+    io::stdin().read_line(&mut user_input).expect("Failed to read line");
+    let struct_index: usize = user_input.trim().parse().expect("Invalid input. Please enter a valid index.");
+    
+
+    match students_info.get(struct_index) {
+        Some(student) => {
+            println!("Student {} details:", struct_index);
+            println!("Name: {}", student.name);
+            println!("Email: {}", student.email);
+            println!("Phone: {}", student.phno);
+            println!("ID: {}", student.id);
+        }
+        None => {
+            println!("Error: Student with index not found.");
+        }
+    }}
+}
